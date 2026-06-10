@@ -81,8 +81,6 @@ import { Icon } from "@iconify/vue";
 
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
-const route = useRoute();
-const router = useRouter();
 
 const { activeSection, scrollToSection, scrollToTop } = useActiveSection([
   "about",
@@ -94,7 +92,7 @@ const { activeSection, scrollToSection, scrollToTop } = useActiveSection([
 ]);
 
 function getLanguagePath(lang: "pt" | "en") {
-  const hash = route.hash || "";
+  const hash = window.location.hash || "";
 
   if (lang === "pt") {
     return `/${hash}`;

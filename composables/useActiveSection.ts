@@ -2,14 +2,12 @@ export function useActiveSection(sectionIds: string[]) {
   const activeSection = ref("");
   const isManualScrolling = ref(false);
 
-  const route = useRoute();
-  const router = useRouter();
-
-  function updateHash(id: string) {
-    router.replace({
-      path: route.path,
-      hash: id ? `#${id}` : "",
-    });
+  function setHash(id: string) {
+    window.history.replaceState(
+      null,
+      "",
+      id ? `#${id}` : window.location.pathname,
+    );
   }
 
   function scrollToSection(id: string) {
@@ -19,27 +17,26 @@ export function useActiveSection(sectionIds: string[]) {
 
     isManualScrolling.value = true;
     activeSection.value = id;
+    setHash(id);
 
-    section.scrollIntoView({
+    const headerOffset = 100;
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: sectionTop - headerOffset,
       behavior: "smooth",
-      block: "start",
     });
-
-    updateHash(id);
 
     setTimeout(() => {
       isManualScrolling.value = false;
-    }, 900);
+    }, 1200);
   }
 
   function scrollToTop() {
     isManualScrolling.value = true;
     activeSection.value = "";
 
-    router.replace({
-      path: route.path,
-      hash: "",
-    });
+    window.history.replaceState(null, "", window.location.pathname);
 
     window.scrollTo({
       top: 0,
@@ -48,7 +45,7 @@ export function useActiveSection(sectionIds: string[]) {
 
     setTimeout(() => {
       isManualScrolling.value = false;
-    }, 900);
+    }, 1200);
   }
 
   onMounted(() => {
@@ -60,7 +57,9 @@ export function useActiveSection(sectionIds: string[]) {
       (entries) => {
         if (isManualScrolling.value) return;
 
-        const visibleEntry = entries.find((entry) => entry.isIntersecting);
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
         if (!visibleEntry) return;
 
@@ -69,12 +68,12 @@ export function useActiveSection(sectionIds: string[]) {
         if (activeSection.value === id) return;
 
         activeSection.value = id;
-        updateHash(id);
+        setHash(id);
       },
       {
         root: null,
-        rootMargin: "-40% 0px -50% 0px",
-        threshold: 0,
+        rootMargin: "-45% 0px -45% 0px",
+        threshold: [0.1, 0.25, 0.5, 0.75],
       },
     );
 

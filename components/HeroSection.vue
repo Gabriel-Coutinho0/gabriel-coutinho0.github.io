@@ -12,14 +12,22 @@
       <p class="stack">
         {{ t("hero.stack") }}
       </p>
-      <div class="actions">
-        <a href="#projects">{{ t("hero.projects") }}</a>
 
+      <div class="actions">
+        <a href="#projects" @click="goToSection($event, 'projects')">
+          {{ t("hero.projects") }}
+        </a>
         <a :href="cvPath" download class="outline">
           {{ t("hero.download") }}
         </a>
 
-        <a href="#contact" class="outline"> {{ t("hero.contact") }} </a>
+        <a
+          href="#contact"
+          class="outline"
+          @click="goToSection($event, 'contact')"
+        >
+          {{ t("hero.contact") }}
+        </a>
       </div>
 
       <div class="stats">
@@ -38,7 +46,25 @@
 </template>
 
 <script setup lang="ts">
-const { t, locale  } = useI18n();
+const { t, locale } = useI18n();
+
+function goToSection(event: MouseEvent, sectionId: string) {
+  event.preventDefault();
+
+  const section = document.getElementById(sectionId);
+
+  if (!section) return;
+
+  const headerOffset = 100;
+  const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+  window.history.replaceState(null, "", `#${sectionId}`);
+
+  window.scrollTo({
+    top: sectionTop - headerOffset,
+    behavior: "smooth",
+  });
+}
 
 const cvPath = computed(() => {
   return locale.value === "en"
@@ -46,6 +72,7 @@ const cvPath = computed(() => {
     : "/Gabriel-Coutinho-CV-PT.pdf";
 });
 </script>
+
 <style scoped>
 .hero {
   min-height: 100vh;
