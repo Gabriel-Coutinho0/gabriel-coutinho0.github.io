@@ -93,7 +93,7 @@ const { activeSection, scrollToSection, scrollToTop } = useActiveSection([
 
 function getLanguagePath(lang: "pt" | "en") {
   const hash = window.location.hash || "";
-
+    
   if (lang === "pt") {
     return `/${hash}`;
   }

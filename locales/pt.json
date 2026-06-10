@@ -2,7 +2,7 @@
   "nav": {
     "about": "Sobre",
     "experience": "Experiência",
-    "skills": "Skills",
+    "skills": "Habilidades",
     "certifications": "Certificações",
     "projects": "Projetos",
     "contact": "Contato"
@@ -35,28 +35,28 @@
         "company": "ARCI Inteligência Imobiliária",
         "period": "Mar 2026 - Atual",
         "description": "Desenvolvimento de soluções para análise de inquilinos e tecnologia imobiliária, atuando em funcionalidades frontend e backend, integrações, decisões de arquitetura e melhorias de produto.",
-        "techs": ["Vue.js", "TypeScript", "APIs", "Banco de dados"]
+        "techs": ["Vue.js","Nuxt","TypeScript","Prototipação", "Node", "Java", "Spring Boot", "Mysql", "SQL"]
       },
       {
         "role": "Desenvolvedor Pleno",
         "company": "ImovPago",
         "period": "Set 2025 - Fev 2026",
         "description": "Desenvolvimento de aplicações web utilizando TypeScript, Vue.js e tecnologias relacionadas, com atuação em frontend, APIs, regras de negócio e suporte à evolução da plataforma.",
-        "techs": ["Vue.js", "TypeScript", "Backend", "SQL"]
+        "techs": ["Vue.js","Nuxt","TypeScript", "Tailwind", "PrimeVue","Vuetify", "Prototipação", "Node", "Java", "Spring Boot", "Mysql", "SQL"]
       },
       {
         "role": "Desenvolvedor Júnior",
         "company": "UC Technology do Brasil",
         "period": "Jun 2025 - Set 2025",
         "description": "Atuação em desenvolvimento frontend e backend, integração de APIs, correção de bugs, implementação de funcionalidades e participação no levantamento de requisitos.",
-        "techs": ["Frontend", "Backend", "APIs"]
+        "techs": ["Vue.js","TypeScript", "Tailwind", "PrimeVue", "Prototipação", "Node", "Java", "Spring Boot", "Mysql", "SQL"]
       },
       {
         "role": "Auxiliar de Desenvolvimento",
         "company": "UC Technology do Brasil",
         "period": "Jun 2023 - Jun 2025",
         "description": "Apoio no levantamento de requisitos, prototipagem de soluções, desenvolvimento frontend e backend e manutenção de sistemas.",
-        "techs": ["Web", "Prototipação", "Requisitos"]
+        "techs": ["Web","Html","Css","Vue.js","TypeScript", "Prototipação", "Requisitos"]
       }
     ]
   },

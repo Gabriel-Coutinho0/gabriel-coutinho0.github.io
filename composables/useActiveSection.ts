@@ -2,12 +2,45 @@ export function useActiveSection(sectionIds: string[]) {
   const activeSection = ref("");
   const isManualScrolling = ref(false);
 
+  const headerOffset = 120;
+
   function setHash(id: string) {
     window.history.replaceState(
       null,
       "",
       id ? `#${id}` : window.location.pathname,
     );
+  }
+
+  function getCurrentSection() {
+    const scrollPosition = window.scrollY + headerOffset + 40;
+
+    let currentSection = "";
+
+    for (const id of sectionIds) {
+      const section = document.getElementById(id);
+
+      if (!section) continue;
+
+      if (scrollPosition >= section.offsetTop) {
+        currentSection = id;
+      }
+    }
+
+    return currentSection;
+  }
+
+  function updateActiveSection() {
+    if (isManualScrolling.value) return;
+
+    const currentSection = getCurrentSection();
+
+    if (!currentSection) return;
+
+    if (activeSection.value === currentSection) return;
+
+    activeSection.value = currentSection;
+    setHash(currentSection);
   }
 
   function scrollToSection(id: string) {
@@ -19,8 +52,7 @@ export function useActiveSection(sectionIds: string[]) {
     activeSection.value = id;
     setHash(id);
 
-    const headerOffset = 100;
-    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+    const sectionTop = section.offsetTop;
 
     window.scrollTo({
       top: sectionTop - headerOffset,
@@ -29,7 +61,8 @@ export function useActiveSection(sectionIds: string[]) {
 
     setTimeout(() => {
       isManualScrolling.value = false;
-    }, 1200);
+      updateActiveSection();
+    }, 900);
   }
 
   function scrollToTop() {
@@ -45,43 +78,19 @@ export function useActiveSection(sectionIds: string[]) {
 
     setTimeout(() => {
       isManualScrolling.value = false;
-    }, 1200);
+    }, 900);
   }
 
   onMounted(() => {
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+    updateActiveSection();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (isManualScrolling.value) return;
-
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (!visibleEntry) return;
-
-        const id = visibleEntry.target.id;
-
-        if (activeSection.value === id) return;
-
-        activeSection.value = id;
-        setHash(id);
-      },
-      {
-        root: null,
-        rootMargin: "-45% 0px -45% 0px",
-        threshold: [0.1, 0.25, 0.5, 0.75],
-      },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    onBeforeUnmount(() => {
-      observer.disconnect();
+    window.addEventListener("scroll", updateActiveSection, {
+      passive: true,
     });
+  });
+
+  onBeforeUnmount(() => {
+    window.removeEventListener("scroll", updateActiveSection);
   });
 
   return {

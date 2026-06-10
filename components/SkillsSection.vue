@@ -55,6 +55,7 @@ const skills = computed(() => [
       { name: "Java", icon: "logos:java" },
       { name: "Spring Boot", icon: "logos:spring-icon" },
       { name: "REST APIs", icon: "mdi:api" },
+      {name: "Node", icon:"devicon:nodejs"}
     ],
   },
   {
