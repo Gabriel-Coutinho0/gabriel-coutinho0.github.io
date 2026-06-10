@@ -34,25 +34,29 @@
         "role": "Senior Front-end Developer",
         "company": "ARCI Inteligência Imobiliária",
         "period": "Mar 2026 - Present",
-        "description": "Development of tenant analysis and real estate technology solutions, working on frontend and backend features, integrations, architecture decisions and product improvements."
+        "description": "Development of tenant analysis and real estate technology solutions, working on frontend and backend features, integrations, architecture decisions and product improvements.",
+        "techs": ["Vue.js", "TypeScript", "APIs", "Database"]
       },
       {
         "role": "Mid-level Developer",
         "company": "ImovPago",
         "period": "Sep 2025 - Feb 2026",
-        "description": "Development of web applications using TypeScript, Vue.js and related technologies, working on frontend, APIs, business rules and platform improvements."
+        "description": "Development of web applications using TypeScript, Vue.js and related technologies, working on frontend, APIs, business rules and platform improvements.",
+        "techs": ["Vue.js", "TypeScript", "Backend", "SQL"]
       },
       {
         "role": "Junior Developer",
         "company": "UC Technology do Brasil",
         "period": "Jun 2025 - Sep 2025",
-        "description": "Frontend and backend development, API integrations, bug fixing, feature implementation and participation in requirements gathering."
+        "description": "Frontend and backend development, API integrations, bug fixing, feature implementation and participation in requirements gathering.",
+        "techs": ["Frontend", "Backend", "APIs"]
       },
       {
         "role": "Development Assistant",
         "company": "UC Technology do Brasil",
         "period": "Jun 2023 - Jun 2025",
-        "description": "Support in requirements gathering, solution prototyping, frontend and backend development and system maintenance."
+        "description": "Support in requirements gathering, solution prototyping, frontend and backend development and system maintenance.",
+        "techs": ["Web", "Prototyping", "Requirements"]
       }
     ]
   },
@@ -62,8 +66,40 @@
   },
   "certifications": {
     "tag": "Certifications",
-    "title": "Licenses and certifications",
-    "view": "View credential →"
+    "title": "Licenses and Certifications",
+    "view": "View credential →",
+    "items": [
+      {
+        "title": "Test of English for International Communication (TOEIC)",
+        "issuer": "ETS",
+        "date": "Issued in May 2024"
+      },
+      {
+        "title": "Vue3: Advanced Framework",
+        "issuer": "Alura",
+        "date": "Issued in March 2024"
+      },
+      {
+        "title": "Vue3: Exploring the Framework",
+        "issuer": "Alura",
+        "date": "Issued in December 2023"
+      },
+      {
+        "title": "CSS: Building Layouts with Grid",
+        "issuer": "Alura",
+        "date": "Issued in April 2023"
+      },
+      {
+        "title": "CSS: Flexbox and Responsive Layouts",
+        "issuer": "Alura",
+        "date": "Issued in March 2023"
+      },
+      {
+        "title": "TypeScript Part 1: Evolving your JavaScript",
+        "issuer": "Alura",
+        "date": "Issued in March 2023"
+      }
+    ]
   },
   "projects": {
     "tag": "Portfolio",

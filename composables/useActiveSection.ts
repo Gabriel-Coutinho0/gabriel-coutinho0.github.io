@@ -1,12 +1,39 @@
 export function useActiveSection(sectionIds: string[]) {
   const activeSection = ref("");
-  const isScrollingToTop = ref(false);
+  const isManualScrolling = ref(false);
 
   const route = useRoute();
   const router = useRouter();
 
+  function updateHash(id: string) {
+    router.replace({
+      path: route.path,
+      hash: id ? `#${id}` : "",
+    });
+  }
+
+  function scrollToSection(id: string) {
+    const section = document.getElementById(id);
+
+    if (!section) return;
+
+    isManualScrolling.value = true;
+    activeSection.value = id;
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    updateHash(id);
+
+    setTimeout(() => {
+      isManualScrolling.value = false;
+    }, 900);
+  }
+
   function scrollToTop() {
-    isScrollingToTop.value = true;
+    isManualScrolling.value = true;
     activeSection.value = "";
 
     router.replace({
@@ -20,8 +47,8 @@ export function useActiveSection(sectionIds: string[]) {
     });
 
     setTimeout(() => {
-      isScrollingToTop.value = false;
-    }, 800);
+      isManualScrolling.value = false;
+    }, 900);
   }
 
   onMounted(() => {
@@ -31,7 +58,7 @@ export function useActiveSection(sectionIds: string[]) {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (isScrollingToTop.value) return;
+        if (isManualScrolling.value) return;
 
         const visibleEntry = entries.find((entry) => entry.isIntersecting);
 
@@ -42,11 +69,7 @@ export function useActiveSection(sectionIds: string[]) {
         if (activeSection.value === id) return;
 
         activeSection.value = id;
-
-        router.replace({
-          path: route.path,
-          hash: `#${id}`,
-        });
+        updateHash(id);
       },
       {
         root: null,
@@ -64,6 +87,7 @@ export function useActiveSection(sectionIds: string[]) {
 
   return {
     activeSection,
+    scrollToSection,
     scrollToTop,
   };
 }

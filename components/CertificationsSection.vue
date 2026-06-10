@@ -1,32 +1,33 @@
 <template>
   <section id="certifications" class="section section-light">
     <div class="container">
-      <p class="tag">Certificações</p>
+      <p class="tag">{{ t("certifications.tag") }}</p>
 
-      <h2 class="section-title">Licenças e certificados</h2>
+      <h2 class="section-title">
+        {{ t("certifications.title") }}
+      </h2>
 
       <div class="certifications-grid">
         <article
           v-for="certification in certifications"
-          :key="certification.title"
+          :key="rt(certification.title)"
           class="certification-card card hover-card"
         >
-          <h3>{{ certification.title }}</h3>
+          <h3>{{ rt(certification.title) }}</h3>
 
           <p class="issuer">
-            {{ certification.issuer }}
+            {{ rt(certification.issuer) }}
           </p>
 
           <p class="date">
-            {{ certification.date }}
+            {{ rt(certification.date) }}
           </p>
 
           <a
-            v-if="certification.link"
-            :href="certification.link"
+            href="https://www.linkedin.com/in/gabrielcoutinhosilva/details/certifications/"
             target="_blank"
           >
-            Ver credencial →
+            {{ t("certifications.view") }}
           </a>
         </article>
       </div>
@@ -35,44 +36,17 @@
 </template>
 
 <script setup lang="ts">
-const certifications = [
-  {
-    title: "Test of English for International Communication (TOEIC)",
-    issuer: "ETS",
-    date: "Emitido em maio de 2024",
-    link: "https://www.linkedin.com/in/gabrielcoutinhosilva/details/certifications/",
-  },
-  {
-    title: "Vue3: Avançando no Framework",
-    issuer: "Alura",
-    date: "Emitido em março de 2024",
-    link: "https://www.linkedin.com/in/gabrielcoutinhosilva/details/certifications/",
-  },
-  {
-    title: "Vue3: Explorando o Framework",
-    issuer: "Alura",
-    date: "Emitido em dezembro de 2023",
-    link: "https://www.linkedin.com/in/gabrielcoutinhosilva/details/certifications/",
-  },
-  {
-    title: "CSS: Construindo Layouts com Grid",
-    issuer: "Alura",
-    date: "Emitido em abril de 2023",
-    link: "https://www.linkedin.com/in/gabrielcoutinhosilva/details/certifications/",
-  },
-  {
-    title: "CSS: Flexbox e Layouts Responsivos",
-    issuer: "Alura",
-    date: "Emitido em março de 2023",
-    link: "https://www.linkedin.com/in/gabrielcoutinhosilva/details/certifications/",
-  },
-  {
-    title: "TypeScript parte 1: Evoluindo seu JavaScript",
-    issuer: "Alura",
-    date: "Emitido em março de 2023",
-    link: "https://www.linkedin.com/in/gabrielcoutinhosilva/details/certifications/",
-  },
-];
+const { t, tm, rt } = useI18n();
+
+type Certification = {
+  title: string;
+  issuer: string;
+  date: string;
+};
+
+const certifications = computed(
+  () => tm("certifications.items") as Certification[],
+);
 </script>
 
 <style scoped>

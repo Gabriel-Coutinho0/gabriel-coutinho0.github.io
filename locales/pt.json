@@ -34,25 +34,29 @@
         "role": "Desenvolvedor Front-end Sênior",
         "company": "ARCI Inteligência Imobiliária",
         "period": "Mar 2026 - Atual",
-        "description": "Desenvolvimento de soluções para análise de inquilinos e tecnologia imobiliária, atuando em funcionalidades frontend e backend, integrações, decisões de arquitetura e melhorias de produto."
+        "description": "Desenvolvimento de soluções para análise de inquilinos e tecnologia imobiliária, atuando em funcionalidades frontend e backend, integrações, decisões de arquitetura e melhorias de produto.",
+        "techs": ["Vue.js", "TypeScript", "APIs", "Banco de dados"]
       },
       {
         "role": "Desenvolvedor Pleno",
         "company": "ImovPago",
         "period": "Set 2025 - Fev 2026",
-        "description": "Desenvolvimento de aplicações web utilizando TypeScript, Vue.js e tecnologias relacionadas, com atuação em frontend, APIs, regras de negócio e suporte à evolução da plataforma."
+        "description": "Desenvolvimento de aplicações web utilizando TypeScript, Vue.js e tecnologias relacionadas, com atuação em frontend, APIs, regras de negócio e suporte à evolução da plataforma.",
+        "techs": ["Vue.js", "TypeScript", "Backend", "SQL"]
       },
       {
         "role": "Desenvolvedor Júnior",
         "company": "UC Technology do Brasil",
         "period": "Jun 2025 - Set 2025",
-        "description": "Atuação em desenvolvimento frontend e backend, integração de APIs, correção de bugs, implementação de funcionalidades e participação no levantamento de requisitos."
+        "description": "Atuação em desenvolvimento frontend e backend, integração de APIs, correção de bugs, implementação de funcionalidades e participação no levantamento de requisitos.",
+        "techs": ["Frontend", "Backend", "APIs"]
       },
       {
         "role": "Auxiliar de Desenvolvimento",
         "company": "UC Technology do Brasil",
         "period": "Jun 2023 - Jun 2025",
-        "description": "Apoio no levantamento de requisitos, prototipagem de soluções, desenvolvimento frontend e backend e manutenção de sistemas."
+        "description": "Apoio no levantamento de requisitos, prototipagem de soluções, desenvolvimento frontend e backend e manutenção de sistemas.",
+        "techs": ["Web", "Prototipação", "Requisitos"]
       }
     ]
   },
@@ -63,7 +67,39 @@
   "certifications": {
     "tag": "Certificações",
     "title": "Licenças e certificados",
-    "view": "Ver credencial →"
+    "view": "Ver credencial →",
+    "items": [
+      {
+        "title": "Test of English for International Communication (TOEIC)",
+        "issuer": "ETS",
+        "date": "Emitido em maio de 2024"
+      },
+      {
+        "title": "Vue3: Avançando no Framework",
+        "issuer": "Alura",
+        "date": "Emitido em março de 2024"
+      },
+      {
+        "title": "Vue3: Explorando o Framework",
+        "issuer": "Alura",
+        "date": "Emitido em dezembro de 2023"
+      },
+      {
+        "title": "CSS: Construindo Layouts com Grid",
+        "issuer": "Alura",
+        "date": "Emitido em abril de 2023"
+      },
+      {
+        "title": "CSS: Flexbox e Layouts Responsivos",
+        "issuer": "Alura",
+        "date": "Emitido em março de 2023"
+      },
+      {
+        "title": "TypeScript parte 1: Evoluindo seu JavaScript",
+        "issuer": "Alura",
+        "date": "Emitido em março de 2023"
+      }
+    ]
   },
   "projects": {
     "tag": "Portfólio",

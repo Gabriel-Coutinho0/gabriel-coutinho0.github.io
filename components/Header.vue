@@ -1,35 +1,56 @@
 <template>
   <header class="header">
     <NuxtLink :to="localePath('/')" class="logo" @click="goToTop">
-      <img src="/favicon.ico" alt="Logo Gabriel Coutinho" />
+      <img src="/favicon.png" alt="Logo Gabriel Coutinho" />
       <span>Gabriel Coutinho</span>
     </NuxtLink>
 
     <nav>
-      <a href="#about" :class="{ active: activeSection === 'about' }">
+      <a
+        href="#about"
+        :class="{ active: activeSection === 'about' }"
+        @click="handleNavClick($event, 'about')"
+      >
         {{ t("nav.about") }}
       </a>
 
-      <a href="#experience" :class="{ active: activeSection === 'experience' }">
+      <a
+        href="#experience"
+        :class="{ active: activeSection === 'experience' }"
+        @click="handleNavClick($event, 'experience')"
+      >
         {{ t("nav.experience") }}
       </a>
 
-      <a href="#skills" :class="{ active: activeSection === 'skills' }">
+      <a
+        href="#skills"
+        :class="{ active: activeSection === 'skills' }"
+        @click="handleNavClick($event, 'skills')"
+      >
         {{ t("nav.skills") }}
       </a>
 
       <a
         href="#certifications"
         :class="{ active: activeSection === 'certifications' }"
+        @click="handleNavClick($event, 'certifications')"
       >
         {{ t("nav.certifications") }}
       </a>
 
-      <a href="#projects" :class="{ active: activeSection === 'projects' }">
+      <a
+        href="#projects"
+        :class="{ active: activeSection === 'projects' }"
+        @click="handleNavClick($event, 'projects')"
+      >
         {{ t("nav.projects") }}
       </a>
 
-      <a href="#contact" :class="{ active: activeSection === 'contact' }">
+      <a
+        href="#contact"
+        :class="{ active: activeSection === 'contact' }"
+        @click="handleNavClick($event, 'contact')"
+      >
         {{ t("nav.contact") }}
       </a>
     </nav>
@@ -38,7 +59,8 @@
         :to="getLanguagePath('pt')"
         :class="{ active: locale === 'pt' }"
       >
-        🇧🇷 PT
+        <Icon icon="flag:br-4x3" class="flag-icon" />
+        PT
       </NuxtLink>
 
       <span>|</span>
@@ -47,19 +69,22 @@
         :to="getLanguagePath('en')"
         :class="{ active: locale === 'en' }"
       >
-        🇺🇸 EN
+        <Icon icon="flag:us-4x3" class="flag-icon" />
+        EN
       </NuxtLink>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
 const route = useRoute();
 const router = useRouter();
 
-const { activeSection, scrollToTop } = useActiveSection([
+const { activeSection, scrollToSection, scrollToTop } = useActiveSection([
   "about",
   "experience",
   "skills",
@@ -76,6 +101,11 @@ function getLanguagePath(lang: "pt" | "en") {
   }
 
   return `/en${hash}`;
+}
+
+function handleNavClick(event: MouseEvent, sectionId: string) {
+  event.preventDefault();
+  scrollToSection(sectionId);
 }
 
 function goToTop(event: MouseEvent) {
@@ -102,15 +132,16 @@ function goToTop(event: MouseEvent) {
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   color: white;
   font-weight: 700;
+  font-size: 1.4rem;
 }
 
 .logo img {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
 }
 
 nav {
@@ -160,6 +191,17 @@ nav a.active::after {
   font-weight: 800;
 }
 
+.language-switcher a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flag-icon {
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+}
 @media (max-width: 900px) {
   nav {
     display: none;

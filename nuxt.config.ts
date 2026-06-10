@@ -27,6 +27,19 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: "/",
+
+    head: {
+      title: "Gabriel Coutinho | Full Stack Developer",
+
+      link: [
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "192x192",
+          href: "/logo.png",
+        },
+      ],
+    },
   },
 
   nitro: {

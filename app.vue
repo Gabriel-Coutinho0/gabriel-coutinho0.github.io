@@ -33,15 +33,14 @@ useHead({
   link: [
     {
       rel: "icon",
-      type: "image/x-icon",
+      type: "image/ico",
       href: "/favicon.ico",
-    },
+    }
   ],
 });
 </script>
 
 <style>
-
 body {
   margin: 0;
   background: #0f172a;
