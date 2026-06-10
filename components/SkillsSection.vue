@@ -1,93 +1,117 @@
 <template>
-  <section id="skills" class="section">
-    <p class="tag">Tecnologias</p>
-    <h2>Skills</h2>
+  <section id="skills" class="section section-light">
+    <div class="container">
+      <p class="tag">Tecnologias</p>
 
-    <div class="grid">
-      <article v-for="group in skills" :key="group.title" class="card">
-        <h3>{{ group.title }}</h3>
+      <h2 class="section-title">Skills</h2>
 
-        <div class="items">
-          <span v-for="item in group.items" :key="item">{{ item }}</span>
-        </div>
-      </article>
+      <div class="skills-grid">
+        <article
+          v-for="group in skills"
+          :key="group.title"
+          class="skill-card card hover-card"
+        >
+          <h3>{{ group.title }}</h3>
+
+          <div class="items">
+            <div
+              v-for="item in group.items"
+              :key="item.name"
+              class="skill-item"
+            >
+              <Icon :icon="item.icon" class="skill-icon" />
+              <span>{{ item.name }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
 const skills = [
   {
     title: "Frontend",
-    items: ["Vue.js", "React", "TypeScript", "JavaScript", "HTML", "CSS"],
+    items: [
+      { name: "Vue.js", icon: "logos:vue" },
+      { name: "React", icon: "logos:react" },
+      { name: "TypeScript", icon: "logos:typescript-icon" },
+      { name: "JavaScript", icon: "logos:javascript" },
+      { name: "HTML", icon: "logos:html-5" },
+      { name: "CSS", icon: "logos:css-3" },
+    ],
   },
   {
     title: "Backend",
-    items: ["Java", "Spring Boot", "REST APIs"],
+    items: [
+      { name: "Java", icon: "logos:java" },
+      { name: "Spring Boot", icon: "logos:spring-icon" },
+      { name: "REST APIs", icon: "mdi:api" },
+    ],
   },
   {
     title: "Banco de dados",
-    items: ["PostgreSQL", "MySQL", "SQL"],
+    items: [
+      { name: "PostgreSQL", icon: "logos:postgresql" },
+      { name: "MySQL", icon: "logos:mysql-icon" },
+      { name: "SQL", icon: "mdi:database" },
+    ],
   },
   {
     title: "Ferramentas",
-    items: ["Git", "Docker", "Linux", "VS Code"],
+    items: [
+      { name: "Git", icon: "logos:git-icon" },
+      { name: "Docker", icon: "logos:docker-icon" },
+      { name: "Linux", icon: "logos:linux-tux" },
+      { name: "VS Code", icon: "logos:visual-studio-code" },
+    ],
   },
 ];
 </script>
 
 <style scoped>
-.section {
-  padding: 110px 8%;
-  background: #111827;
-  color: #fff;
-}
-
-.tag {
-  color: #a78bfa;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-h2 {
-  font-size: clamp(32px, 5vw, 48px);
-  margin-bottom: 40px;
-}
-
-.grid {
+.skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 24px;
+  margin-top: 40px;
 }
 
-.card {
+.skill-card {
   padding: 28px;
-  border-radius: 18px;
-  background: #1e293b;
-  border: 1px solid #334155;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  transition: 0.2s;
-  border-color: #8b5cf6;
-}
-
-h3 {
-  font-size: 24px;
-  margin-bottom: 18px;
+.skill-card h3 {
+  margin: 0 0 24px;
+  color: var(--color-text-primary);
+  font-size: 22px;
 }
 
 .items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  gap: 14px;
 }
 
-.items span {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: #312e81;
-  color: #ddd6fe;
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.skill-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .skill-card {
+    padding: 24px;
+  }
 }
 </style>

@@ -1,32 +1,17 @@
 <template>
   <section class="section">
-    <p class="tag">Idiomas</p>
+    <div class="container">
+      <p class="tag">Idiomas</p>
 
-    <h2>Idiomas</h2>
-
-    <div class="languages">
+      <h2>Idiomas</h2>
 
       <div class="language">
         <span>Inglês</span>
-
-        <div class="level">
-          <div class="active"></div>
-          <div class="active"></div>
-          <div class="active"></div>
-          <div></div>
-          <div></div>
-        </div>
+        <strong>Intermediário</strong>
       </div>
       <div class="language">
         <span>Espanhol</span>
-
-        <div class="level">
-          <div class="active"></div>
-          <div class="active"></div>
-          <div class="active"></div>
-          <div></div>
-          <div></div>
-        </div>
+        <strong>Intermediário</strong>
       </div>
     </div>
   </section>
@@ -34,46 +19,46 @@
 
 <style scoped>
 .section {
-  padding: 110px 8%;
-  background: #111827;
-  color: white;
+  padding: 90px 32px;
+  background: #0f172a;
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .tag {
   color: #a78bfa;
-  text-transform: uppercase;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 h2 {
-  margin-bottom: 40px;
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 12px 0 28px;
 }
 
 .language {
+  max-width: 420px;
+  padding: 24px;
+  border-radius: 18px;
+  background: #1e293b;
+  border: 1px solid #334155;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  max-width: 500px;
-  margin-bottom: 30px;
+  align-items: center;
 }
 
 .language span {
-  font-size: 22px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
 }
 
-.level {
-  display: flex;
-  gap: 10px;
-}
-
-.level div {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #334155;
-}
-
-.active {
-  background: #5eead4 !important;
+.language strong {
+  color: #a78bfa;
 }
 </style>

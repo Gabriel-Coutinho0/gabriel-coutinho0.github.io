@@ -1,7 +1,12 @@
 <template>
-  <NuxtPage />
+  <div>
+    <NuxtPage />
+    <Footer />
+  </div>
 </template>
 <script setup>
+import Footer from "~/components/Footer.vue";
+
 useHead({
   title: "Gabriel Coutinho | Full Stack Developer",
 
@@ -36,9 +41,6 @@ useHead({
 </script>
 
 <style>
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   margin: 0;

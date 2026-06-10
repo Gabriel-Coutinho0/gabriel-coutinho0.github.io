@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "experience": "Experiência",
+    "skills": "Skills",
+    "certifications": "Certificações",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "hero": {
+    "tag": "Software Developer",
+    "title": "Olá, eu sou",
+    "description": "Desenvolvedor Full Stack com experiência em Java, Spring Boot, Vue.js, TypeScript, JavaScript, PostgreSQL e MySQL.",
+    "stack": "Vue.js • React • TypeScript • Java • Spring Boot",
+    "projects": "Ver projetos",
+    "download": "Download CV",
+    "contact": "Contato",
+    "experience": "anos de experiência",
+    "fullstack": "frontend e backend"
+  },
+  "about": {
+    "tag": "Sobre mim",
+    "title": "Desenvolvedor focado em soluções web modernas.",
+    "p1": "Sou desenvolvedor de software com experiência em desenvolvimento web full-stack, trabalhando com tecnologias como Java, Spring Boot, Vue.js, TypeScript, JavaScript, PostgreSQL e MySQL.",
+    "p2": "Formado em Análise e Desenvolvimento de Sistemas pela FATEC São José dos Campos em 2024, tenho experiência em frontend, backend, desenvolvimento de APIs, gerenciamento de banco de dados e manutenção de software.",
+    "p3": "Atualmente trabalho como Desenvolvedor Sênior na ARCI Inteligência Imobiliária, contribuindo no desenvolvimento de soluções para análise de inquilinos e tecnologia imobiliária, atuando em funcionalidades frontend, backend, integrações, arquitetura e melhorias de produto.",
+    "p4": "Valorizo trabalho em equipe, comunicação e aprendizado contínuo, buscando entregar soluções confiáveis, escaláveis e alinhadas às necessidades do negócio."
+  },
+  "experience": {
+    "tag": "Carreira",
+    "title": "Experiência profissional",
+    "jobs": [
+      {
+        "role": "Desenvolvedor Front-end Sênior",
+        "company": "ARCI Inteligência Imobiliária",
+        "period": "Mar 2026 - Atual",
+        "description": "Desenvolvimento de soluções para análise de inquilinos e tecnologia imobiliária, atuando em funcionalidades frontend e backend, integrações, decisões de arquitetura e melhorias de produto."
+      },
+      {
+        "role": "Desenvolvedor Pleno",
+        "company": "ImovPago",
+        "period": "Set 2025 - Fev 2026",
+        "description": "Desenvolvimento de aplicações web utilizando TypeScript, Vue.js e tecnologias relacionadas, com atuação em frontend, APIs, regras de negócio e suporte à evolução da plataforma."
+      },
+      {
+        "role": "Desenvolvedor Júnior",
+        "company": "UC Technology do Brasil",
+        "period": "Jun 2025 - Set 2025",
+        "description": "Atuação em desenvolvimento frontend e backend, integração de APIs, correção de bugs, implementação de funcionalidades e participação no levantamento de requisitos."
+      },
+      {
+        "role": "Auxiliar de Desenvolvimento",
+        "company": "UC Technology do Brasil",
+        "period": "Jun 2023 - Jun 2025",
+        "description": "Apoio no levantamento de requisitos, prototipagem de soluções, desenvolvimento frontend e backend e manutenção de sistemas."
+      }
+    ]
+  },
+  "skills": {
+    "tag": "Tecnologias",
+    "title": "Skills"
+  },
+  "certifications": {
+    "tag": "Certificações",
+    "title": "Licenças e certificados",
+    "view": "Ver credencial →"
+  },
+  "projects": {
+    "tag": "Portfólio",
+    "title": "Projetos em destaque",
+    "view": "Ver projeto →",
+    "items": [
+      {
+        "title": "ARCI Inteligência Imobiliária",
+        "description": "Plataforma voltada para análise de inquilinos e gestão de risco para imobiliárias. Participei da evolução do produto, implementando funcionalidades frontend e backend, integrações com APIs, autenticação, dashboards e melhorias focadas em escalabilidade e experiência do usuário."
+      },
+      {
+        "title": "Sistema de Monitoramento de Áreas Restritas",
+        "description": "Projeto API desenvolvido em parceria com a Altave durante a graduação na FATEC. O sistema utiliza análise de imagens para monitoramento automático de áreas restritas, contribuindo para segurança e controle de acesso."
+      }
+    ]
+  },
+  "contact": {
+    "tag": "Contato",
+    "title": "Vamos conversar?",
+    "description": "Estou aberto a oportunidades, projetos e conexões profissionais."
+  },
+  "footer": {
+    "text": "Todos os direitos reservados."
+  }
+}

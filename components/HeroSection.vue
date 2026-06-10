@@ -1,49 +1,55 @@
 <template>
   <section class="hero">
-    <div class="content">
+    <div class="container">
       <p class="tag">Software Developer</p>
 
-      <h1>Olá, eu sou <span>Gabriel Coutinho</span></h1>
+      <h1>{{ t("hero.title") }} <span>Gabriel Coutinho</span></h1>
 
       <p class="description">
-        Desenvolvedor Full Stack com experiência em Vue.js, TypeScript, Java,
-        Spring Boot, APIs REST e bancos de dados SQL.
+        {{ t("hero.description") }}
       </p>
 
+      <p class="stack">
+        {{ t("hero.stack") }}
+      </p>
       <div class="actions">
-        <a href="#projects">Ver projetos</a>
+        <a href="#projects">{{ t("hero.projects") }}</a>
 
-        <a href="/Gabriel-Coutinho-CV.pdf" download class="outline">
-          Download CV
+        <a :href="cvPath" download class="outline">
+          {{ t("hero.download") }}
         </a>
 
-        <a href="#contact" class="outline"> Contato </a>
+        <a href="#contact" class="outline"> {{ t("hero.contact") }} </a>
       </div>
 
       <div class="stats">
-        <div>
+        <div class="card">
           <strong>3+</strong>
-          <span>anos de experiência</span>
+          <span>{{ t("hero.experience") }}</span>
         </div>
 
-        <div>
-          <strong>4</strong>
-          <span>experiências/projetos</span>
-        </div>
-
-        <div>
+        <div class="card">
           <strong>Full Stack</strong>
-          <span>frontend e backend</span>
+          <span>{{ t("hero.fullstack") }}</span>
         </div>
       </div>
     </div>
   </section>
 </template>
 
+<script setup lang="ts">
+const { t, locale  } = useI18n();
+
+const cvPath = computed(() => {
+  return locale.value === "en"
+    ? "/Gabriel-Coutinho-CV-EN.pdf"
+    : "/Gabriel-Coutinho-CV-PT.pdf";
+});
+</script>
 <style scoped>
 .hero {
   min-height: 100vh;
-  padding: 150px 8% 80px;
+  padding: 150px 32px 90px;
   display: flex;
   align-items: center;
   background:
@@ -57,36 +63,32 @@
       rgba(59, 130, 246, 0.12),
       transparent 35%
     ),
-    #0f172a;
-  color: #fff;
-}
-
-.content {
-  max-width: 900px;
-}
-
-.tag {
-  color: #a78bfa;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    var(--color-bg);
+  color: var(--color-text-primary);
 }
 
 h1 {
+  max-width: 780px;
   font-size: clamp(42px, 7vw, 78px);
   line-height: 1.05;
   margin: 18px 0;
 }
 
 h1 span {
-  color: #8b5cf6;
+  color: var(--color-primary);
 }
 
 .description {
   max-width: 720px;
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
   font-size: 20px;
   line-height: 1.7;
+}
+
+.stack {
+  margin-top: 18px;
+  color: var(--color-primary-light);
+  font-weight: 700;
 }
 
 .actions {
@@ -98,12 +100,11 @@ h1 span {
 
 .actions a {
   padding: 14px 24px;
-  border-radius: 12px;
-  background: #8b5cf6;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
   color: #fff;
   font-weight: 700;
-  text-decoration: none;
-  transition: 0.2s;
+  transition: var(--transition-default);
 }
 
 .actions a:hover {
@@ -113,7 +114,7 @@ h1 span {
 
 .actions .outline {
   background: transparent;
-  border: 1px solid #8b5cf6;
+  border: 1px solid var(--color-primary);
 }
 
 .stats {
@@ -125,25 +126,27 @@ h1 span {
 
 .stats div {
   padding: 20px;
-  min-width: 180px;
-  border-radius: 16px;
-  background: rgba(30, 41, 59, 0.7);
-  border: 1px solid #334155;
+  min-width: 190px;
 }
 
 .stats strong {
   display: block;
-  color: #fff;
   font-size: 24px;
 }
 
 .stats span {
-  color: #94a3b8;
+  color: var(--color-text-muted);
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 130px;
+    padding: 130px 24px 80px;
+  }
+
+  .actions a,
+  .stats div {
+    width: 100%;
+    text-align: center;
   }
 }
 </style>

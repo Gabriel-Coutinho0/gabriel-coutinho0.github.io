@@ -1,155 +1,118 @@
 <template>
-  <section id="contact" class="section">
-    <p class="tag">Contato</p>
+  <section id="contact" class="section section-light">
+    <div class="container contact-container">
+      <p class="tag">{{ t("contact.tag") }}</p>
+      <h2 class="section-title">{{ t("contact.title") }}</h2>
+      <p class="section-description">{{ t("contact.description") }}</p>
 
-    <h2>Vamos conversar?</h2>
+      <div class="contact-card card">
+        <a class="contact-item" href="mailto:gabrielcoutinho2011@gmail.com">
+          <span class="icon">
+            <Icon icon="fa6-solid:envelope" />
+          </span>
 
-    <p class="description">
-      Estou aberto a oportunidades, projetos e conexões profissionais.
-    </p>
-
-    <div class="contact-card">
-      <div class="contact-item">
-        <span class="icon">📍</span>
-        <p>Caçapava, SP - Brasil</p>
-      </div>
-
-      <div class="contact-item">
-        <span class="icon">✉️</span>
-        <a href="mailto:gabrielcoutinho2011@gmail.com">
-          gabrielcoutinho2011@gmail.com
+          <span>gabrielcoutinho2011@gmail.com</span>
         </a>
-      </div>
 
-      <div class="contact-item">
-        <span class="icon">📞</span>
-        <a href="tel:+5512991767150"> +55 12 99176-7150 </a>
-      </div>
-
-      <div class="contact-item">
-        <span class="icon">🐙</span>
-        <a href="https://github.com/Gabriel-Coutinho0" target="_blank">
-          github.com/Gabriel-Coutinho0
-        </a>
-      </div>
-
-      <div class="contact-item">
-        <span class="icon">💼</span>
         <a
+          class="contact-item"
+          href="https://wa.me/5512991767150"
+          target="_blank"
+        >
+          <span class="icon">
+            <Icon icon="fa6-brands:whatsapp" />
+          </span>
+
+          <span>WhatsApp: +55 12 99176-7150</span>
+        </a>
+
+        <a
+          class="contact-item"
+          href="https://github.com/Gabriel-Coutinho0"
+          target="_blank"
+        >
+          <span class="icon">
+            <Icon icon="fa6-brands:github" />
+          </span>
+
+          <span>github.com/Gabriel-Coutinho0</span>
+        </a>
+
+        <a
+          class="contact-item"
           href="https://www.linkedin.com/in/gabrielcoutinhosilva/"
           target="_blank"
         >
-          linkedin.com/in/gabrielcoutinhosilva
+          <span class="icon">
+            <Icon icon="fa6-brands:linkedin" />
+          </span>
+
+          <span>linkedin.com/in/gabrielcoutinhosilva</span>
         </a>
       </div>
-    </div>
-
-    <div class="links">
-      <a href="mailto:gabrielcoutinho2011@gmail.com">Email</a>
-
-      <a href="https://github.com/Gabriel-Coutinho0" target="_blank">
-        GitHub
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/gabrielcoutinhosilva/"
-        target="_blank"
-      >
-        LinkedIn
-      </a>
     </div>
   </section>
 </template>
 
+<script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
+const { t } = useI18n();
+</script>
+
 <style scoped>
-.section {
-  padding: 110px 8%;
-  background: #111827;
-  color: #fff;
+.contact-container {
   text-align: center;
-}
-
-.tag {
-  color: #a78bfa;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-h2 {
-  font-size: clamp(32px, 5vw, 52px);
-  margin: 12px 0;
-}
-
-.description {
-  color: #cbd5e1;
-  font-size: 18px;
 }
 
 .contact-card {
   max-width: 620px;
   margin: 42px auto 0;
   padding: 32px;
-  border-radius: 22px;
-  background: rgba(30, 41, 59, 0.7);
-  border: 1px solid #334155;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
   text-align: left;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
 .contact-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 44px 1fr;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 22px;
+  column-gap: 18px;
+  margin-bottom: 24px;
+  color: var(--color-text-secondary);
+  transition: var(--transition-default);
 }
 
 .contact-item:last-child {
   margin-bottom: 0;
 }
 
+.contact-item:hover {
+  color: var(--color-primary-light);
+  transform: translateX(4px);
+}
+
 .icon {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(139, 92, 246, 0.15);
+  background: rgba(139, 92, 246, 0.18);
+  color: var(--color-primary-light);
   font-size: 18px;
 }
 
-.contact-item p,
-.contact-item a {
-  margin: 0;
-  color: #cbd5e1;
+.icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.contact-item span:last-child {
+  display: block;
   font-size: 17px;
-  text-decoration: none;
-}
-
-.contact-item a:hover {
-  color: #a78bfa;
-}
-
-.links {
-  margin-top: 34px;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.links a {
-  padding: 14px 24px;
-  border-radius: 12px;
-  background: #8b5cf6;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  transition: 0.2s;
-}
-
-.links a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.35);
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 @media (max-width: 600px) {
@@ -158,13 +121,17 @@ h2 {
   }
 
   .contact-item {
-    align-items: flex-start;
+    grid-template-columns: 40px 1fr;
+    column-gap: 14px;
   }
 
-  .contact-item p,
-  .contact-item a {
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-item span:last-child {
     font-size: 15px;
-    word-break: break-word;
   }
 }
 </style>

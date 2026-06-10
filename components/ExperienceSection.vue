@@ -1,102 +1,69 @@
 <template>
-  <section id="experience" class="section">
-    <p class="tag">Carreira</p>
-    <h2>Experiência profissional</h2>
+  <section id="experience" class="section section-dark">
+    <div class="container">
+      <p class="tag">{{ t("experience.tag") }}</p>
 
-    <div class="timeline">
-      <article v-for="job in jobs" :key="job.company + job.role" class="item">
-        <span class="period">{{ job.period }}</span>
-        <h3>{{ job.role }}</h3>
-        <strong>{{ job.company }}</strong>
-        <p>{{ job.description }}</p>
+      <h2 class="section-title">{{ t("experience.title") }}</h2>
 
-        <div class="techs">
-          <span v-for="tech in job.techs" :key="tech">{{ tech }}</span>
-        </div>
-      </article>
+      <div class="timeline">
+        <article
+          v-for="job in jobs"
+          :key="rt(job.role) + rt(job.company)"
+          class="item card hover-card"
+        >
+          <span class="period">{{ rt(job.period) }}</span>
+
+          <h3>{{ rt(job.role) }}</h3>
+
+          <strong>{{ rt(job.company) }}</strong>
+
+          <p>{{ rt(job.description) }}</p>
+
+          <div class="techs">
+            <span v-for="tech in job.techs" :key="rt(tech)">
+              {{ rt(tech) }}
+            </span>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const jobs = [
-  {
-    role: "Desenvolvedor Front-end Sênior",
-    company: "ARCI Inteligência Imobiliária",
-    period: "Mar 2026 - Atual",
-    description:
-      "Desenvolvimento e evolução de plataformas para o mercado imobiliário, com implementação de funcionalidades, sustentação de sistemas críticos, revisão técnica de código e apoio em decisões de arquitetura.",
-    techs: ["Vue.js", "TypeScript", "APIs", "Banco de dados"],
-  },
-  {
-    role: "Desenvolvedor Pleno",
-    company: "ImovPago",
-    period: "Set 2025 - Fev 2026",
-    description:
-      "Atuação full stack com desenvolvimento frontend, regras de negócio, APIs, modelagem de banco de dados, melhorias contínuas e suporte à produção.",
-    techs: ["Vue.js", "TypeScript", "Backend", "SQL"],
-  },
-  {
-    role: "Desenvolvedor Júnior",
-    company: "UC Technology do Brasil",
-    period: "Jun 2025 - Set 2025",
-    description:
-      "Desenvolvimento e manutenção de aplicações web, integração de APIs, prototipação e participação no levantamento de requisitos.",
-    techs: ["Frontend", "Backend", "APIs"],
-  },
-  {
-    role: "Auxiliar de Desenvolvimento",
-    company: "UC Technology do Brasil",
-    period: "Jun 2023 - Jun 2025",
-    description:
-      "Apoio no desenvolvimento frontend e backend, levantamento de requisitos e prototipação de soluções.",
-    techs: ["Web", "Prototipação", "Requisitos"],
-  },
-];
+const { t, tm, rt } = useI18n();
+
+type Job = {
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  techs: string[];
+};
+
+const jobs = computed(() => tm("experience.jobs") as Job[]);
 </script>
 
 <style scoped>
-.section {
-  padding: 110px 8%;
-  background: #0f172a;
-  color: #fff;
-}
-
-.tag {
-  color: #a78bfa;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-h2 {
-  font-size: clamp(32px, 5vw, 48px);
-  margin-bottom: 40px;
-}
-
 .timeline {
   display: grid;
   gap: 24px;
+  margin-top: 40px;
 }
 
 .item {
   position: relative;
   padding: 28px;
-  border-radius: 18px;
-  background: #1e293b;
-  border: 1px solid #334155;
-}
-
-.item:hover {
-  border-color: #8b5cf6;
 }
 
 .period {
-  color: #a78bfa;
+  color: var(--color-primary-light);
   font-weight: 700;
 }
 
 h3 {
   margin: 12px 0 6px;
+  color: var(--color-text-primary);
   font-size: 24px;
 }
 
@@ -105,7 +72,7 @@ strong {
 }
 
 p {
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
   line-height: 1.7;
 }
 

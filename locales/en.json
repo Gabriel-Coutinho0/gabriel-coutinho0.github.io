@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "certifications": "Certifications",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tag": "Software Developer",
+    "title": "Hi, I'm",
+    "description": "Full Stack Developer experienced with Java, Spring Boot, Vue.js, TypeScript, JavaScript, PostgreSQL and MySQL.",
+    "stack": "Vue.js • React • TypeScript • Java • Spring Boot",
+    "projects": "View projects",
+    "download": "Download CV",
+    "contact": "Contact",
+    "experience": "years of experience",
+    "fullstack": "frontend and backend"
+  },
+  "about": {
+    "tag": "About me",
+    "title": "Developer focused on modern web solutions.",
+    "p1": "I am a software developer with experience in full-stack web development, working with technologies such as Java, Spring Boot, Vue.js, TypeScript, JavaScript, PostgreSQL and MySQL.",
+    "p2": "I graduated in Systems Analysis and Development from FATEC São José dos Campos in 2024 and have experience across frontend, backend, API development, database management and software maintenance.",
+    "p3": "I currently work as a Senior Developer at ARCI Inteligência Imobiliária, contributing to tenant analysis and real estate technology solutions, working on frontend and backend features, integrations, system architecture decisions and product improvements.",
+    "p4": "I value teamwork, communication and continuous learning, aiming to deliver reliable, scalable solutions aligned with business needs."
+  },
+  "experience": {
+    "tag": "Career",
+    "title": "Professional experience",
+    "jobs": [
+      {
+        "role": "Senior Front-end Developer",
+        "company": "ARCI Inteligência Imobiliária",
+        "period": "Mar 2026 - Present",
+        "description": "Development of tenant analysis and real estate technology solutions, working on frontend and backend features, integrations, architecture decisions and product improvements."
+      },
+      {
+        "role": "Mid-level Developer",
+        "company": "ImovPago",
+        "period": "Sep 2025 - Feb 2026",
+        "description": "Development of web applications using TypeScript, Vue.js and related technologies, working on frontend, APIs, business rules and platform improvements."
+      },
+      {
+        "role": "Junior Developer",
+        "company": "UC Technology do Brasil",
+        "period": "Jun 2025 - Sep 2025",
+        "description": "Frontend and backend development, API integrations, bug fixing, feature implementation and participation in requirements gathering."
+      },
+      {
+        "role": "Development Assistant",
+        "company": "UC Technology do Brasil",
+        "period": "Jun 2023 - Jun 2025",
+        "description": "Support in requirements gathering, solution prototyping, frontend and backend development and system maintenance."
+      }
+    ]
+  },
+  "skills": {
+    "tag": "Technologies",
+    "title": "Skills"
+  },
+  "certifications": {
+    "tag": "Certifications",
+    "title": "Licenses and certifications",
+    "view": "View credential →"
+  },
+  "projects": {
+    "tag": "Portfolio",
+    "title": "Featured projects",
+    "view": "View project →",
+    "items": [
+      {
+        "title": "ARCI Inteligência Imobiliária",
+        "description": "Platform focused on tenant analysis and risk management for real estate companies. I contributed to product evolution by implementing frontend and backend features, API integrations, authentication, dashboards and improvements focused on scalability and user experience."
+      },
+      {
+        "title": "Restricted Areas Monitoring System",
+        "description": "API project developed in partnership with Altave during my graduation at FATEC. The system uses image analysis for automatic monitoring of restricted areas, contributing to security and access control."
+      }
+    ]
+  },
+  "contact": {
+    "tag": "Contact",
+    "title": "Let's talk?",
+    "description": "I am open to opportunities, projects and professional connections."
+  },
+  "footer": {
+    "text": "All rights reserved."
+  }
+}

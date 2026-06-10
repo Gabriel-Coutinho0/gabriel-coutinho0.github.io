@@ -1,27 +1,24 @@
 <template>
-  <section id="about" class="section">
-    <p class="tag">Sobre mim</p>
-    <h2>Desenvolvedor focado em soluções web modernas.</h2>
+  <section id="about" class="section section-light">
+    <div class="container">
+      <p class="tag">{{ t("about.tag") }}</p>
 
-    <div class="text">
-      <p>
-        Sou Desenvolvedor de Software formado em Análise e Desenvolvimento de
-        Sistemas pela FATEC São José dos Campos.
-      </p>
+      <h2 class="section-title">
+        {{ t("about.title") }}
+      </h2>
 
-      <p>
-        Tenho experiência em desenvolvimento full stack, atuando com frontend,
-        backend, APIs REST, banco de dados e manutenção de sistemas críticos.
-      </p>
-
-      <p>
-        Trabalho principalmente com Vue.js, TypeScript, Java, Spring Boot,
-        JavaScript, PostgreSQL e MySQL, sempre buscando entregar soluções
-        escaláveis, confiáveis e alinhadas às necessidades do negócio.
-      </p>
+      <div class="about-text">
+        <p>{{ t("about.p1") }}</p>
+        <p>{{ t("about.p2") }}</p>
+        <p>{{ t("about.p3") }}</p>
+        <p>{{ t("about.p4") }}</p>
+      </div>
     </div>
   </section>
 </template>
+<script setup lang="ts">
+const { t } = useI18n();
+</script>
 
 <style scoped>
 .section {

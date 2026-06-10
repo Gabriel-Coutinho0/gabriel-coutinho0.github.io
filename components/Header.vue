@@ -1,20 +1,88 @@
 <template>
   <header class="header">
-    <a href="#" class="logo">
+    <NuxtLink :to="localePath('/')" class="logo" @click="goToTop">
       <img src="/favicon.ico" alt="Logo Gabriel Coutinho" />
-
       <span>Gabriel Coutinho</span>
-    </a>
+    </NuxtLink>
 
     <nav>
-      <a href="#about">Sobre</a>
-      <a href="#experience">Experiência</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projetos</a>
-      <a href="#contact">Contato</a>
+      <a href="#about" :class="{ active: activeSection === 'about' }">
+        {{ t("nav.about") }}
+      </a>
+
+      <a href="#experience" :class="{ active: activeSection === 'experience' }">
+        {{ t("nav.experience") }}
+      </a>
+
+      <a href="#skills" :class="{ active: activeSection === 'skills' }">
+        {{ t("nav.skills") }}
+      </a>
+
+      <a
+        href="#certifications"
+        :class="{ active: activeSection === 'certifications' }"
+      >
+        {{ t("nav.certifications") }}
+      </a>
+
+      <a href="#projects" :class="{ active: activeSection === 'projects' }">
+        {{ t("nav.projects") }}
+      </a>
+
+      <a href="#contact" :class="{ active: activeSection === 'contact' }">
+        {{ t("nav.contact") }}
+      </a>
     </nav>
+    <div class="language-switcher">
+      <NuxtLink
+        :to="getLanguagePath('pt')"
+        :class="{ active: locale === 'pt' }"
+      >
+        🇧🇷 PT
+      </NuxtLink>
+
+      <span>|</span>
+
+      <NuxtLink
+        :to="getLanguagePath('en')"
+        :class="{ active: locale === 'en' }"
+      >
+        🇺🇸 EN
+      </NuxtLink>
+    </div>
   </header>
 </template>
+
+<script setup lang="ts">
+const { t, locale } = useI18n();
+const localePath = useLocalePath();
+const route = useRoute();
+const router = useRouter();
+
+const { activeSection, scrollToTop } = useActiveSection([
+  "about",
+  "experience",
+  "skills",
+  "certifications",
+  "projects",
+  "contact",
+]);
+
+function getLanguagePath(lang: "pt" | "en") {
+  const hash = route.hash || "";
+
+  if (lang === "pt") {
+    return `/${hash}`;
+  }
+
+  return `/en${hash}`;
+}
+
+function goToTop(event: MouseEvent) {
+  event.preventDefault();
+  scrollToTop();
+}
+</script>
 
 <style scoped>
 .header {
@@ -27,7 +95,7 @@
   align-items: center;
   background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid var(--color-border);
   z-index: 20;
 }
 
@@ -36,9 +104,7 @@
   align-items: center;
   gap: 12px;
   color: white;
-  text-decoration: none;
   font-weight: 700;
-  font-size: 18px;
 }
 
 .logo img {
@@ -49,20 +115,52 @@
 
 nav {
   display: flex;
-  gap: 24px;
+  gap: 22px;
 }
 
-nav a {
-  color: #cbd5e1;
-  text-decoration: none;
-  font-size: 15px;
+nav a,
+.language-switcher a,
+.language-switcher span {
+  color: var(--color-text-secondary);
+  font-weight: 600;
 }
 
-nav a:hover {
-  color: #8b5cf6;
+nav a:hover,
+.language-switcher a:hover {
+  color: var(--color-primary-light);
+}
+nav a.active {
+  color: var(--color-primary-light);
+  position: relative;
 }
 
-@media (max-width: 768px) {
+nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-primary-light);
+}
+
+.language-switcher {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.router-link-active {
+  color: var(--color-primary-light);
+}
+
+.language-switcher a.active {
+  color: var(--color-primary-light);
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
   nav {
     display: none;
   }
