@@ -62,7 +62,11 @@
   },
   "skills": {
     "tag": "Technologies",
-    "title": "Skills"
+    "title": "Skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "tools": "Tools"
   },
   "certifications": {
     "tag": "Certifications",

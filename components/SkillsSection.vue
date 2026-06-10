@@ -1,10 +1,13 @@
 <template>
   <section id="skills" class="section section-light">
     <div class="container">
-      <p class="tag">Tecnologias</p>
+      <p class="tag">
+        {{ t("skills.tag") }}
+      </p>
 
-      <h2 class="section-title">Skills</h2>
-
+      <h2 class="section-title">
+        {{ t("skills.title") }}
+      </h2>
       <div class="skills-grid">
         <article
           v-for="group in skills"
@@ -32,9 +35,11 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
-const skills = [
+const { t } = useI18n();
+
+const skills = computed(() => [
   {
-    title: "Frontend",
+    title: t("skills.frontend"),
     items: [
       { name: "Vue.js", icon: "logos:vue" },
       { name: "React", icon: "logos:react" },
@@ -45,7 +50,7 @@ const skills = [
     ],
   },
   {
-    title: "Backend",
+    title: t("skills.backend"),
     items: [
       { name: "Java", icon: "logos:java" },
       { name: "Spring Boot", icon: "logos:spring-icon" },
@@ -53,7 +58,7 @@ const skills = [
     ],
   },
   {
-    title: "Banco de dados",
+    title: t("skills.database"),
     items: [
       { name: "PostgreSQL", icon: "logos:postgresql" },
       { name: "MySQL", icon: "logos:mysql-icon" },
@@ -61,7 +66,7 @@ const skills = [
     ],
   },
   {
-    title: "Ferramentas",
+    title: t("skills.tools"),
     items: [
       { name: "Git", icon: "logos:git-icon" },
       { name: "Docker", icon: "logos:docker-icon" },
@@ -69,7 +74,7 @@ const skills = [
       { name: "VS Code", icon: "logos:visual-studio-code" },
     ],
   },
-];
+]);
 </script>
 
 <style scoped>
